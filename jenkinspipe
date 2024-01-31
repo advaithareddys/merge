@@ -1,0 +1,25 @@
+pipeline {
+    agent any  // Specifies where the pipeline will run, "any" means it can run on any available agent
+
+    stages {
+        stage('Stage 1') {
+            steps {
+                // Define steps to be executed in this stage
+                echo 'Hello, World!'
+            }
+        }
+
+        stage('Stage 2') {
+            when {
+                expression { params.BUILD_TYPE == 'deploy' }
+            }
+            steps {
+                // Another stage with a condition
+                echo 'Deploying...'
+            }
+        }
+    
+
+
+    
+
